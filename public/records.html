@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기록 조회 - 학생 출결 확인</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="logo">출결 확인</span>
+    <a href="/">출결 체크</a>
+    <a href="/students.html">학생 관리</a>
+    <a href="/records.html" class="active">기록 조회</a>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>출결 기록 조회</h1>
+    </div>
+
+    <!-- 날짜별 조회 -->
+    <div class="card">
+      <h2>날짜별 조회</h2>
+      <div class="filter-row">
+        <input type="date" id="filter-date">
+        <button class="btn btn-primary" onclick="searchByDate()">조회</button>
+      </div>
+      <div id="date-stats" class="stats" style="display:none;">
+        <div class="stat-box total">
+          <div class="number" id="stat-total">0</div>
+          <div class="label">전체</div>
+        </div>
+        <div class="stat-box present">
+          <div class="number" id="stat-present">0</div>
+          <div class="label">출석</div>
+        </div>
+        <div class="stat-box absent">
+          <div class="number" id="stat-absent">0</div>
+          <div class="label">결석</div>
+        </div>
+      </div>
+      <table id="date-table" style="display:none;">
+        <thead>
+          <tr>
+            <th>학년</th>
+            <th>이름</th>
+            <th>출결</th>
+            <th>시간</th>
+            <th>특이사항</th>
+          </tr>
+        </thead>
+        <tbody id="date-list">
+        </tbody>
+      </table>
+      <div class="empty-msg" id="date-empty" style="display:none;">
+        해당 날짜의 출결 기록이 없습니다.
+      </div>
+    </div>
+
+    <!-- 학생별 조회 -->
+    <div class="card">
+      <h2>학생별 조회</h2>
+      <div class="filter-row">
+        <select id="filter-student">
+          <option value="">학생 선택</option>
+        </select>
+        <button class="btn btn-primary" onclick="searchByStudent()">조회</button>
+      </div>
+      <div id="student-stats" class="stats" style="display:none;">
+        <div class="stat-box total">
+          <div class="number" id="s-stat-total">0</div>
+          <div class="label">전체</div>
+        </div>
+        <div class="stat-box present">
+          <div class="number" id="s-stat-present">0</div>
+          <div class="label">출석</div>
+        </div>
+        <div class="stat-box absent">
+          <div class="number" id="s-stat-absent">0</div>
+          <div class="label">결석</div>
+        </div>
+      </div>
+      <table id="student-table" style="display:none;">
+        <thead>
+          <tr>
+            <th>날짜</th>
+            <th>출결</th>
+            <th>시간</th>
+            <th>특이사항</th>
+          </tr>
+        </thead>
+        <tbody id="student-list">
+        </tbody>
+      </table>
+      <div class="empty-msg" id="student-empty" style="display:none;">
+        해당 학생의 출결 기록이 없습니다.
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/records.js"></script>
+</body>
+</html>
