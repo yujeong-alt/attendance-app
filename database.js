@@ -1,7 +1,14 @@
 const Database = require('better-sqlite3');
 const path = require('path');
+const fs = require('fs');
 
-const db = new Database(path.join(__dirname, 'data', 'attendance.db'));
+// data 폴더가 없으면 자동 생성
+const dataDir = path.join(__dirname, 'data');
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir);
+}
+
+const db = new Database(path.join(dataDir, 'attendance.db'));
 
 // WAL 모드 활성화 (성능 향상)
 db.pragma('journal_mode = WAL');
