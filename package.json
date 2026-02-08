@@ -1,7 +1,7 @@
 {
   "name": "attendance-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "학생 출결 확인 웹",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
